@@ -7,7 +7,35 @@
   <title>Curso ReactJS</title>
 </head>
 <body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
   
-  <script type="module" src="./script.js"></script>
+    const Title = () => <h1>Meu App React</h1>;
+
+    const Button = () => {
+      function handleClick(ev) {
+        alert(ev.target.innerText);
+      }
+      return <div><button onClick={handleClick}>Comprar</button></div>;
+    } 
+
+    const ButtonCount = () => {
+      const [count, setCount] = React.useState(0);
+      return <div><button onClick={() => setCount(count + 1)}>Contador: {count}</button></div>
+    }
+
+    const App = () => <div>
+      <Title />
+      <Button />
+      <ButtonCount />
+    </div>;
+    
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
 </body>
 </html>
