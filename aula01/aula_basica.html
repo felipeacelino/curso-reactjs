@@ -29,10 +29,21 @@
       return <div><button onClick={() => setCount(count + 1)}>Contador: {count}</button></div>
     }
 
+    const Campo = () => {
+      const [palavra, setPalavra] = React.useState('');
+      return (
+        <div>
+          <input type="text" onKeyDown={(ev) => setPalavra(ev.target.value)} />
+          <p>Valor: {palavra}</p>
+        </div>
+      );
+    };
+
     const App = () => <div>
       <Title />
       <Button />
       <ButtonCount />
+      <Campo />
     </div>;
     
     ReactDOM.render(<App />, document.getElementById('app'));
