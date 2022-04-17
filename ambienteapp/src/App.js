@@ -1,7 +1,7 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import "./Ex12.css";
+import './Ex12.css';
 
 const Header = () => {
   return (
@@ -38,7 +38,7 @@ const Topo = (props) => {
   }, [props]);
 
   return (
-    <div className="topo">
+    <div className="topo fade-in-down">
       <h1 className="titulo">{props.title}</h1>
     </div>
   );
@@ -47,8 +47,9 @@ const Topo = (props) => {
 const ListaProdutos = () => {
   return (
     <>
+      <Spinner />
       <Topo title="Minha Loja" />
-      <ul className="produtos">
+      <ul className="produtos fade-in-up">
         <li>
           <Link to="produto/1">
             <img
@@ -117,15 +118,16 @@ const ListaProdutos = () => {
 const ProdutoDetalhe = () => {
   return (
     <>
+      <Spinner />
       <Topo title="Produto X" />
       <div className="prod-det">
-        <div className="prod-det-img">
+        <div className="prod-det-img fade-in-right">
           <img
             src="https://images.tcdn.com.br/img/img_prod/497460/camiseta_o_grito_282_3_20190314163301.jpeg"
             alt="Meu produto"
           />
         </div>
-        <div className="prod-det-infos">
+        <div className="prod-det-infos fade-in-left">
           <h2>Produto X</h2>
           <div className="prod-det-preco">R$ 2000</div>
           <div className="prod-det-btn">
@@ -145,7 +147,7 @@ const Contato = () => {
   return (
     <>
       <Topo title="Contato" />
-      <form className="form">
+      <form className="form fade-in-up">
         <p>Preencha o formulário abaixo:</p>
         <div className="form-input">
           <label htmlFor="nome">Nome</label>
@@ -164,13 +166,21 @@ const Contato = () => {
           <textarea id="mensagem"></textarea>
         </div>
         <button type="submit">Enviar</button>
-      </form>{" "}
+      </form>{' '}
     </>
   );
 };
 
 const Footer = () => {
   return <footer className="footer">2022- Todos os direitos reservados</footer>;
+};
+
+const Spinner = () => {
+  return (
+    <div className="spinner-wrp">
+      <div className="spinner"></div>
+    </div>
+  );
 };
 
 function App() {
